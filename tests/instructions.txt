@@ -1,0 +1,10 @@
+How to load fixtures correctly:
+
+1. in jsTestDriver.cont write path relative to config root
+serve:
+  - src-test/fixtures/*.html
+
+2. in js tests config for jasmine write the same path with /tests/ prefix, because rewrite rules are used (not so obvious).
+ <script>
+    jasmine.getFixtures().fixturesPath = '/test/src-test/fixtures';
+ </script>

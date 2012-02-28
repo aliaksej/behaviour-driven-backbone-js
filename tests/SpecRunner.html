@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>eFC test runner</title>
+
+	<link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0/jasmine_favicon.png">
+	<!--<link rel="stylesheet" type="text/css" href="../css/style.css">-->
+
+	<link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0/jasmine.css">
+	<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine.js"></script>
+	<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine-html.js"></script>
+	<script type="text/javascript" src="lib/jasmine-jquery.js"></script>
+	<script type="text/javascript" src="jasmine_settings.js"></script>
+
+	<script type="text/javascript" src="../js/lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.simplemodal.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.mockjax.js"></script>
+	<script type="text/javascript" src="../js/lib/chosen.jquery.js"></script>
+	<script type="text/javascript" src="../js/lib/modernizr-2.0.6.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.viewport.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+	<script type="text/javascript" src="../js/global.js"></script>
+	<script type="text/javascript" src="../js/efc/tooltip.js"></script>
+	<script type="text/javascript" src="../js/efc/ui-helpers.js"></script>
+
+    <!-- eFC.widgets and searchApp -->
+    <script type="text/javascript" src="../js/lib/json2.js"></script>
+	<script type="text/javascript" src="../js/lib/underscore.js"></script>
+	<script type="text/javascript" src="../js/lib/backbone.js"></script>
+	<script type="text/javascript" src="../js/lib/backbone-localstorage.js"></script>
+	<script type="text/javascript" src="../js/lib/backbone.behaviours.js"></script>
+
+    <script type="text/javascript" src="../js/efc/behaviours.js"></script>
+	<script type="text/javascript" src="../js/efc/widgets-core.js"></script>
+	<script type="text/javascript" src="../js/efc/widgets.js"></script>
+
+    <!-- eFC.DependentCheckboxes -->
+	<script type="text/javascript" src="../js/efc/dependentcheckboxes.js"></script>
+
+	<!-- eFC.LinkedSelect -->
+    <script type="text/javascript" src="../js/efc/linkedselect.js"></script>
+
+    <!-- eFC.Modal -->
+    <script type="text/javascript" src="../js/efc/modal.js"></script>
+
+	<!-- eFC.Form -->
+	<script type="text/javascript" src="../js/efc/form.js"></script>
+	<script type="text/javascript" src="../js/efc/formserializer.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.validate.js"></script>
+	<script type="text/javascript" src="../html/includes/mocks/form_mock.js"></script>
+
+</head>
+
+<body>
+
+<!--<script type="text/javascript" src="spec/DependentCheckboxes.spec.js"></script>
+<script type="text/javascript" src="spec/BackboneBehaviours.spec.js"></script>
+<script type="text/javascript" src="spec/WidgetsSpec.js"></script>
+<script type="text/javascript" src="spec/eFC.Form.spec.js"></script>-->
+<!--<script type="text/javascript" src="spec/eFC.LinkedSelect.spec.js"></script>
+<script type="text/javascript" src="spec/eFC.Modal.spec.js"></script>-->
+<script type="text/javascript" src="spec/eFC.Autocomplete.spec.js"></script>
+
+
+<script type="text/javascript">
+	jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+	jasmine.getEnv().execute();
+</script>
+
+</body>
+</html>
