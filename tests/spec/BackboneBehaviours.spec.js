@@ -11,7 +11,7 @@ describe('Backbone.Behaviour', function () {
             return true;
         },
         destroy: function (owner) {
-            return true
+            return true;
         }
     });
 
