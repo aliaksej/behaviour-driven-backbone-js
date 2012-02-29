@@ -17,7 +17,7 @@ describe('Backbone.Behaviour', function () {
 
     window.bc = bc;
 
-    View = Backbone.View.extend({
+    View = Backbone.BView.extend({
         behaviours: {
             str: 'bc',
             func: bc
