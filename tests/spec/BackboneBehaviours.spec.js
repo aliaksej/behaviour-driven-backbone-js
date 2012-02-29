@@ -59,20 +59,20 @@ describe('Backbone.Behaviour', function () {
     describe('tests Backbone.BView behaviour driven component', function () {
 
         beforeEach(function () {
-            window.onHello = function () {
+            this.onHello = function () {
                 return 'Hello';
             };
-            window.afterInitTrigger = function () {
+            this.afterInitTrigger = function () {
                 return true;
             };
 
-            spyOn(window, 'onHello');
-            spyOn(window, 'afterInitTrigger');
+            spyOn(this, 'onHello');
+            spyOn(this, 'afterInitTrigger');
 
             this.view = new View({
                 triggers: {
-                    afterInit: window.afterInitTrigger,
-                    onHello: window.onHello
+                    afterInit: this.afterInitTrigger,
+                    onHello: this.onHello
                 }
             });
         });
@@ -91,11 +91,11 @@ describe('Backbone.Behaviour', function () {
             expect(view._callbacks.afterInit).toBeDefined();
 
             // default event triggers must be executed on object creation
-            expect(afterInitTrigger).toHaveBeenCalled();
+            expect(this.afterInitTrigger).toHaveBeenCalled();
 
             // trigger custom event handler
             view.trigger('onHello');
-            expect(onHello).toHaveBeenCalled();
+            expect(this.onHello).toHaveBeenCalled();
         });
 
         it('tests behaviours initialization and functionality', function () {
