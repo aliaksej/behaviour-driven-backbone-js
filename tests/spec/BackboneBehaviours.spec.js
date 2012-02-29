@@ -56,7 +56,7 @@ describe('Backbone.Behaviour', function () {
         expect(pr.destroy).toBeDefined();
     });
 
-    describe('tests Backbone.View behaviour driven component', function () {
+    describe('tests Backbone.BView behaviour driven component', function () {
 
         beforeEach(function () {
             window.onHello = function () {
@@ -77,9 +77,9 @@ describe('Backbone.Behaviour', function () {
             });
         });
 
-        expect(Backbone.View).toBeDefined();
-        expect(Backbone.View.extend).toBeDefined();
-        expect(Backbone.View.extend).toEqual(Backbone.View.extend);
+        expect(Backbone.BView).toBeDefined();
+        expect(Backbone.BView.extend).toBeDefined();
+        expect(Backbone.BView.extend).toEqual(Backbone.BView.extend);
 
 
         it ('tests Behaviour.triggers functionality', function () {
