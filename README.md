@@ -18,23 +18,26 @@ var CollapsibeSerializableWidget = Backbone.BView.extend({
 
 ## Backbone.Behaviour
 
-Behaviour is extensible component that contains methods. Behaviour have reference to owner object. Methods' names should be equal to owner's events, specified in owner's `behaviour trackable events`.
+Behaviour is extensible component that contains methods. Behaviour have reference to owner object. Methods' names should be equal to owner's events, specified in owner's `behaviour trackable events` or you can bind events to owner directly in `initialize` method.
 
 <pre>
 var Draggable = Backbone.Behaviour.extend({
 	options: {}, // draggable options, can be defined in owner's `behaviours` property
 	initialize: function (owner) {
-		owner.el.addClass('behaviour_driven');
-		// you can perform additional logic with owner here
+		// bind trigger directly
+		this.owner.bind('render', this.initDraggable);
+		// or you can perform additional logic with owner here
 	},
-	// will be performed after initialization of owner
-	afterInit: function (owner) {
+	// will be performed on owner's event `onInit`
+	onInit: function () {
+		this.initDraggable();
+	},
+	initDraggable: function () {
 		this.dragEl = this.owner.draggable(this.options);
 	},
 	// will automatically trigger on owner destruction
 	destroy: function () {
 		this.dragEl.draggable('destroy');
-		this.owner.el.removeClass('behaviour_driven');
 	}
 });
 </pre>
