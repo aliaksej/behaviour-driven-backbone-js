@@ -33,7 +33,6 @@ describe('Backbone.Behaviour', function () {
         expect(Backbone.Behavioural.bindTriggers).toBeDefined();
         expect(Backbone.Behavioural.behaviours).toBeUndefined();
         expect(Backbone.Behavioural._behaviours).toBeUndefined();
-        expect(Backbone.Behavioural._behaviourTrackableEvents).toBeDefined();
     });
 
     it('tests Backbone.Behaviour component and it\'s methods', function () {

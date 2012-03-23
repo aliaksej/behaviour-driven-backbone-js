@@ -41,10 +41,6 @@
      */
     Backbone.Behavioural = {
         /**
-         * this events will be tracked automatically
-         */
-        _behaviourTrackableEvents: ['beforeInit', 'afterInit', 'destroy'],
-        /**
          * Initialize behaviours.
          * Behaviours works this way:
          * - add custom functionality to classes using triggers
@@ -211,6 +207,10 @@
     };
     Backbone.BView.extend = Backbone.View.extend;
     _.extend(Backbone.BView.prototype, Backbone.View.prototype, Backbone.Behavioural, {
+        /**
+         * this events will be tracked automatically
+         */
+        _behaviourTrackableEvents: ['beforeInit', 'afterInit', 'destroy'],
         /**
          * @constructs
          */
