@@ -5,15 +5,15 @@ Component extends Backbone.View with behavioral functionality and provides quick
 The main goal of behaviours is to add extra functionality to existing component unobtrusively, avoiding multiple extending and calling parent methods.
 
 <pre>
-	var CollapsibeSerializableWidget = Backbone.BView.extend({
-		behaviours: {
-			collapsible: Collapsibe,
-			serializable: {
-				behaviour: Backbone.Behaviours.Serializable,
-				elements: ':input'
-			}
+var CollapsibeSerializableWidget = Backbone.BView.extend({
+	behaviours: {
+		collapsible: Collapsibe,
+		serializable: {
+			behaviour: Backbone.Behaviours.Serializable,
+			elements: ':input'
 		}
-	});
+	}
+});
 </pre>
 
 ## Backbone.Behaviour
