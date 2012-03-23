@@ -22,9 +22,10 @@ Behaviour have reference to owner object. By default BView supports this events:
 
 <pre>
 	var Draggable = Backbone.Behaviour.extend({
-		options: {}, // draggable options, can be defined in config
+		options: {}, // draggable options, can be defined in owner `behaviours` config
 		initialize: function (owner) {
-			owner.el.addClass('behavioural component');
+			owner.el.addClass('behaviour_driven');
+			// you can perform additional logic with owner here
 		}
 		afterInit: function (owner) {
 			// owner is Backbone component (BView)
@@ -33,12 +34,14 @@ Behaviour have reference to owner object. By default BView supports this events:
 		// will automatically trigger on
 		destroy: function () {
 			this.dragEl.draggable('destroy');
-			this.owner.el.removeClass('behavioural component');
+			this.owner.el.removeClass('behaviour_driven');
 		}
 	});
 </pre>
 
 ## Triggers
+
+Triggers are easy way to bind some logic to component on component instantiation. Trigger's key should equal event name.
 
 <pre>
 	var widget = new Backbone.BView({
@@ -52,4 +55,8 @@ Behaviour have reference to owner object. By default BView supports this events:
 			}
 		}
 	});
+
+	// the same as
+	widget.bind('reset', function () { // on reset })
+	widget.bind('destroy', function () { // on reset })
 </pre>
