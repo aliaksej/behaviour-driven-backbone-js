@@ -2,6 +2,7 @@
 
 Component extends Backbone.View with behavioral functionality and quick way to bind triggers to component.
 
+<pre>
   var NewInstance = SomeComponent.extend({
     behaviours: {
     collapsible: Collapsibe",
@@ -18,3 +19,4 @@ Component extends Backbone.View with behavioral functionality and quick way to b
     }
     }
   });
+</pre>
