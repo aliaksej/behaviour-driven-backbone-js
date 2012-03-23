@@ -16,13 +16,16 @@ The main goal of behaviours is to add extra functionality to existing component 
 	});
 </pre>
 
-## Behaviours
+## Backbone.Behaviour
 
 Behaviour have reference to owner object. By default BView supports this events: <b>beforeInit</b>, <b>afterInit</b>, <b>destroy</b>.
 
 <pre>
 	var Draggable = Backbone.Behaviour.extend({
 		options: {}, // draggable options, can be defined in config
+		initialize: function (owner) {
+			owner.el.addClass('behavioural component');
+		}
 		afterInit: function (owner) {
 			// owner is Backbone component (BView)
 			this.dragEl = this.owner.draggable(this.options);
@@ -30,6 +33,7 @@ Behaviour have reference to owner object. By default BView supports this events:
 		// will automatically trigger on
 		destroy: function () {
 			this.dragEl.draggable('destroy');
+			this.owner.el.removeClass('behavioural component');
 		}
 	});
 </pre>
