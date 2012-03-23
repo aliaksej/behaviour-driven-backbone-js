@@ -7,9 +7,9 @@ The main goal of behaviours is to add extra functionality to existing component 
 <pre>
 	var CollapsibeSerializableWidget = Backbone.BView.extend({
 		behaviours: {
-			collapsible: Collapsibe",
-			serializabla: {
-				behaviour: Serializable,
+			collapsible: Collapsibe,
+			serializable: {
+				behaviour: Backbone.Behaviours.Serializable,
 				elements: ':input'
 			}
 		}
@@ -21,42 +21,43 @@ The main goal of behaviours is to add extra functionality to existing component 
 Behaviour have reference to owner object. By default BView supports this events: <b>beforeInit</b>, <b>afterInit</b>, <b>destroy</b>.
 
 <pre>
-	var Draggable = Backbone.Behaviour.extend({
-		options: {}, // draggable options, can be defined in owner `behaviours` config
-		initialize: function (owner) {
-			owner.el.addClass('behaviour_driven');
-			// you can perform additional logic with owner here
-		}
-		afterInit: function (owner) {
-			// owner is Backbone component (BView)
-			this.dragEl = this.owner.draggable(this.options);
-		},
-		// will automatically trigger on
-		destroy: function () {
-			this.dragEl.draggable('destroy');
-			this.owner.el.removeClass('behaviour_driven');
-		}
-	});
+var Draggable = Backbone.Behaviour.extend({
+	options: {}, // draggable options, can be defined in owner's `behaviours` property
+	initialize: function (owner) {
+		owner.el.addClass('behaviour_driven');
+		// you can perform additional logic with owner here
+	},
+	// will be performed after initialization of owner
+	afterInit: function (owner) {
+		this.dragEl = this.owner.draggable(this.options);
+	},
+	// will automatically trigger on owner destruction
+	destroy: function () {
+		this.dragEl.draggable('destroy');
+		this.owner.el.removeClass('behaviour_driven');
+	}
+});
 </pre>
 
 ## Triggers
 
-Triggers are easy way to bind some logic to component on component instantiation. Trigger's key should equal event name.
+Triggers are easy way to bind triggers on component instantiation. Key of trigger should equal event name.
 
 <pre>
-	var widget = new Backbone.BView({
-		triggers: {
-			// trigger will be bound on component initialization
-			reset: function () {
-				// can use vars from current scope
-			},
-			destroy: function () {},
-				// perform some logic on destroy
-			}
+var widget = new Backbone.BView({
+	triggers: {
+		// trigger will be bound on component reset
+		reset: function () {
+			// can use vars from current scope
+		},
+		// will be triggered on destroy
+		destroy: function () {},
+			// perform some logic on destroy
 		}
-	});
+	}
+});
 
-	// the same as
-	widget.bind('reset', function () { // on reset })
-	widget.bind('destroy', function () { // on reset })
+// the same as
+widget.bind('reset', function () { // on reset })
+widget.bind('destroy', function () { // on reset })
 </pre>
