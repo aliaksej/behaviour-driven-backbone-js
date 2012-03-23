@@ -18,7 +18,7 @@ var CollapsibeSerializableWidget = Backbone.BView.extend({
 
 ## Backbone.Behaviour
 
-Behaviour have reference to owner object. By default BView supports this events: <b>beforeInit</b>, <b>afterInit</b>, <b>destroy</b>.
+Behaviour is extensible component that contains methods. Behaviour have reference to owner object. Methods' names should be equal to owner's events, specified in owner's `behaviour trackable events`.
 
 <pre>
 var Draggable = Backbone.Behaviour.extend({
@@ -37,8 +37,15 @@ var Draggable = Backbone.Behaviour.extend({
 		this.owner.el.removeClass('behaviour_driven');
 	}
 });
+</pre>
 
-// then create component
+## Backbone.BView
+
+Backbone.BView is behaviour driven Backbone.View.
+By default BView supports this events for behaviours: <b>beforeInit</b>, <b>afterInit</b>, <b>destroy</b>.
+
+<pre>
+// Attach behaviours to component
 var Widget = Backbone.BView.extend({
 	behaviours: {
 		draggable: {
@@ -51,6 +58,7 @@ var Widget = Backbone.BView.extend({
 		}
 	}
 });
+// now graggable functionality can be reused for many plugins :) You only override default options.
 </pre>
 
 ## Triggers
