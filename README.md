@@ -33,7 +33,7 @@ var Draggable = Backbone.Behaviour.extend({
 		this.initDraggable();
 	},
 	initDraggable: function () {
-		this.dragEl = this.owner.draggable(this.options);
+		this.dragEl = this.owner.el.draggable(this.options);
 	},
 	// will automatically trigger on owner destruction
 	destroy: function () {
