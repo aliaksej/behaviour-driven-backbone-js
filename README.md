@@ -59,5 +59,5 @@ var widget = new Backbone.BView({
 
 // the same as
 widget.bind('reset', function () { // on reset })
-widget.bind('destroy', function () { // on reset })
+widget.bind('destroy', function () { // on destroy })
 </pre>
