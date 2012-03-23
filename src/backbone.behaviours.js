@@ -115,7 +115,7 @@
 
             // if parent behaviours are added, merge with them
             if (parent && parent.behaviours) {
-                this.behaviours = $.extend({}, this.behaviours, parent.behaviours);
+                this.behaviours = $.extend({}, parent.behaviours, this.behaviours);
             }
         },
         /**
