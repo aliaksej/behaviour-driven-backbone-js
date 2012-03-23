@@ -7,7 +7,7 @@ The main goal of behaviours is to add extra functionality to existing component 
 <pre>
 var CollapsibeSerializableWidget = Backbone.BView.extend({
 	behaviours: {
-		collapsible: Collapsibe,
+		collapsible: Collapsible,
 		serializable: {
 			behaviour: Backbone.Behaviours.Serializable,
 			elements: ':input'
@@ -35,6 +35,20 @@ var Draggable = Backbone.Behaviour.extend({
 	destroy: function () {
 		this.dragEl.draggable('destroy');
 		this.owner.el.removeClass('behaviour_driven');
+	}
+});
+
+// then create component
+var Widget = Backbone.BView.extend({
+	behaviours: {
+		draggable: {
+			behaviour: Draggable,
+			// set public properties
+			options: {
+				dragSrc: '.title'
+				// etc.
+			}
+		}
 	}
 });
 </pre>
